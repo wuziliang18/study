@@ -19,6 +19,7 @@ public class TestBiMap {
 		BiMap<Integer, String> userMap = HashBiMap.create();
 		userMap.put(1, "用户1");
 		userMap.put(2, "用户2");
+		userMap.put(2, "用户22");
 		userMap.put(3, "用户3");
 		try {
 			userMap.put(4, "用户3");
@@ -30,6 +31,7 @@ public class TestBiMap {
 		// 如果value一致 强制
 		userMap.forcePut(5, "用户3");
 		assertEquals(userMap.get(1), "用户1");
+		assertEquals(userMap.get(2), "用户22");
 		assertTrue(userMap.inverse().get("用户1") == 1);
 		assertTrue(userMap.inverse().get("用户3") == 5);
 	}
